@@ -8,14 +8,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 
-@IonicPage()
+@IonicPage(
+ 
+)
 @Component({
   selector: 'page-profile-search-results',
   templateUrl: 'profile-search-results.html',
 })
 export class ProfileSearchResultsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
   ionViewDidLoad() {

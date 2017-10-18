@@ -11,3 +11,4 @@ import { ProfileSearchPage } from './profile-search';
   ],
 })
 export class ProfileSearchPageModule {}
+ 
