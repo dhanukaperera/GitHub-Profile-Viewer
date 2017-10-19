@@ -17,11 +17,14 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ProfileSearchResultsPage {
 
+  username : string;
+
   constructor(private navCtrl: NavController, private navParams: NavParams) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ProfileSearchResultsPage');
+  ionViewWillLoad() {
+    this.username = this.navParams.get('username');
+    console.log(this.username);
   }
 
 }
