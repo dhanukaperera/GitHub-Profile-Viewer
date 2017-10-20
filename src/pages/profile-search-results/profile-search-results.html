@@ -15,5 +15,5 @@
 
 <ion-content padding>
   <search-result [user]="user"></search-result>
-  <repository [repository]></repository>
+  <repository *ngFor="let repo of repositories" [repository]="repo"></repository>
 </ion-content>

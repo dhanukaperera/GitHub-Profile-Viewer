@@ -14,6 +14,8 @@ import 'rxjs/add/observable/of' // allow us to do create a observables of values
 import { User } from '../../models/user.interface';
 import { USER_LIST } from '../../mocks/user.mocks';
 
+import { Repository } from '../../models/repository.interface'; 
+import { REPOISITORY_LIST } from '../../mocks/repository.mocks';
 /*
   Generated class for the GitHubServiceProvider provider.
 
@@ -35,4 +37,11 @@ export class GitHubServiceProvider {
     return Observable.of(USER_LIST.filter(user => user.name == username)[0])
   }
 
+  /*
+  Finding the repositories from whithin REPOSITORY_LIST, equal to the usernmae pased in.
+  Returning the results as an Observable.
+   */
+  mockGetRepositoryInformation(username: string): Observable<Repository[]> {
+    return Observable.of(REPOISITORY_LIST.filter(repository => repository.owner.name === username))
+  }
 }
