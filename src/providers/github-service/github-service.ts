@@ -1,3 +1,4 @@
+import { Http,Response} from '@angular/http';
 import { Injectable } from '@angular/core';
 //import { Http } from '@angular/http';
 /* rxjx allow us to use observable within our application.
@@ -7,6 +8,9 @@ import { Injectable } from '@angular/core';
   many values we pass through until we unsubscribe it.
 */
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/throw';
+import 'rxjs/add/operator/do';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of' // allow us to do create a observables of values
 
@@ -25,7 +29,9 @@ import { REPOISITORY_LIST } from '../../mocks/repository.mocks';
 @Injectable()
 export class GitHubServiceProvider {
 
-  constructor() {
+  private baseUrl: string = "https://api.github.com/users";
+
+  constructor(private http:Http) {
     console.log('Hello GitHubServiceProvider Provider');
   }
 
@@ -43,5 +49,13 @@ export class GitHubServiceProvider {
    */
   mockGetRepositoryInformation(username: string): Observable<Repository[]> {
     return Observable.of(REPOISITORY_LIST.filter(repository => repository.owner.name === username))
+  }
+
+  getUserInformation(username : string) : Observable<User>{
+    return this.http.get(`${this.baseUrl}/${username}`)
+    .do((data:Response) => console.log(data))
+    .map((data:Response)=>data.json())
+    .do((data:Response) => console.log(data))
+    .catch((error:Response)=>Observable.throw(error.json().error || "Server error."))
   }
 }
