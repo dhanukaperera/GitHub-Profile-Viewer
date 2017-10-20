@@ -14,12 +14,12 @@ import { GitHubServiceProvider } from '../providers/github-service/github-servic
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HttpModule
+    MyApp
   ],
   providers: [
     StatusBar,
