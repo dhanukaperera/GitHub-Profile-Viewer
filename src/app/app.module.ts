@@ -5,7 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { GitHubServiceProvider } from '../providers/git-hub-service/git-hub-service';
+import { GitHubServiceProvider } from '../providers/github-service/github-service';
 
 @NgModule({
   declarations: [
