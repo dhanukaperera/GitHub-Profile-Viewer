@@ -2,7 +2,7 @@ import { User } from '../models/user.interface';
 
 const userList: User[] = [
     {
-        name: 'PaulHalliday',
+        name: 'Dhanuka',
         company: 'PWH',
         location: 'Durham, UK',
         bio: 'I make videos on my favourite technologies. Go Angular!',
